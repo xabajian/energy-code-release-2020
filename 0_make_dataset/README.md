@@ -99,18 +99,3 @@ country-year, including:
 
 ## Testing for the existence of unit roots in our outcome variable
 Through this data testing we motivate the first differencing completed in `Step 5` of **Constructing Regression Ready Dataset**
-
-[`3_unit_root_test_and_plot.do`](https://github.com/ClimateImpactLab/energy-code-release-2020/blob/master/0_make_dataset/3_unit_root_test_and_plot.do) takes the regression ready dataset created in [2_construct_regression_ready_data.do](https://github.com/ClimateImpactLab/energy-code-release-2020/blob/master/0_make_dataset/2_construct_regression_ready_data.do), and tests for the existence of unit roots in the load_pc variable.
-* The code implements the tests described in Section Appendix A.1 of the paper. 
-* The figures outputted are those in the paper as Appendix Figure A.2
-
-[`4_plot_ITA_other_energy_regimes_timeseries.R`](https://github.com/ClimateImpactLab/energy-code-release-2020/blob/master/0_make_dataset/4_plot_ITA_other_energy_regimes_timeseries.R) takes the regression ready dataset created in [2_construct_regression_ready_data.do](https://github.com/ClimateImpactLab/energy-code-release-2020/blob/master/0_make_dataset/2_construct_regression_ready_data.do), and plots a simple visualisation of the time series for ITALY Other fuels.
-* The figure outputted is in the paper as Appendix Figure A.1
-
-
-### Code Inputs:
-* `energy-code-release-2020/data/GMFD_TINV_clim_regsort.dta`
-
-### Code Outputs:
-* `energy-code-release-2020/figures/fig_Appendix-A1_ITA_other_fuels_time_series_regimes.pdf`
-* `energy-code-release-2020/figures/fig_Appendix-A2_Unit_Root_Tests_p_val_hists_electricity.pdf`

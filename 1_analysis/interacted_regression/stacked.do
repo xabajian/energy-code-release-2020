@@ -129,7 +129,9 @@ estimates save "$root/sters/FD_inter_`model_name'", replace
 
 //calculating weigts for FGLS
 drop if resid==.
-bysort region_i: egen omega = var(resid)
+//bysort region_i: egen omega = var(resid)
+bysort region_i: egen omega = sd(resid)
+replace omega = omega^2
 qui gen weight = 1/omega
 drop resid
 

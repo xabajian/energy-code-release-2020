@@ -23,7 +23,8 @@ pause off
 
 // path to energy-code-release repo 
 
-global root "/Users/`c(username)'/Documents/repos/energy-code-release-2020"
+//global root "/Users/`c(username)'/Documents/repos/energy-code-release-2020"
+global root "/Users/xabajian/Documents/GitHub/energy-code-release-2020"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -94,9 +95,20 @@ replace hdd20_TINV_GMFD = hdd20_other_TINV_GMFD if inlist(product,"other_energy"
 		duplicates drop country year, force
 
 		// create income and climate quantiles 
-		qui egen gpid=xtile(lgdppc_MA15), nq(10)
-		qui egen tpid=xtile(cdd20_TINV_GMFD), nq(3)
-		qui egen tgpid=xtile(lgdppc_MA15), nq(3)
+// 		qui egen gpid=xtile(lgdppc_MA15), nq(10)
+// 		qui egen tpid=xtile(cdd20_TINV_GMFD), nq(3)
+// 		qui egen tgpid=xtile(lgdppc_MA15), nq(3)
+
+/*
+xtile is legacy egen
+
+replace w/ current syntax
+*/
+
+		qui xtile gpid=lgdppc_MA15, nquantiles(10)
+		qui  xtile tpid=cdd20_TINV_GMFD, nquantiles(10)
+		qui  xtile tgpid=lgdppc_MA15, nquantiles(3)
+	
 
 		**reversing the order of tpid to put hot ones on top**
 		qui replace tpid = 4 - tpid
